@@ -18,3 +18,27 @@ export const getAppointmentsForDay = function (state, name) {
 //state - object
 //day key array of objects
 
+export const getInterview = function (state, interview) {
+  if (!interview) {
+    return null;
+  } 
+  
+  const filteredInterview = {
+    "student": interview.student,
+    "interviewer": state.interviewers[interview.interviewer]
+  }
+  return filteredInterview 
+     
+
+
+}
+
+// {  
+//   "student": "Lydia Miller-Jones",
+//   "interviewer": {  
+//     "id": 1,
+//     "name": "Sylvia Palmer",
+//     "avatar": "https://i.imgur.com/LpaY82x.png"
+//   }
+// }
+

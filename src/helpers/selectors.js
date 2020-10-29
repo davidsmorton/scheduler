@@ -1,8 +1,8 @@
 //The function will return an array of appointments for the given day.
 
-const getAppointmentsForDay = function (state, name) {
+export const getAppointmentsForDay = function (state, name) {
   const filteredDays = state.days.filter((dayItem) => dayItem.name === name);
-  console.log(filteredDays)
+  
   if(state.days.length === 0) {
     return [];
   } else if (filteredDays.length === 0) {
@@ -10,7 +10,6 @@ const getAppointmentsForDay = function (state, name) {
   } else {
   return filteredDays[0].appointments.map(
     (appointmentItem) => state.appointments[appointmentItem]
-  
   );}
 };
 //find the correct day inside state.days
@@ -19,4 +18,3 @@ const getAppointmentsForDay = function (state, name) {
 //state - object
 //day key array of objects
 
-export default getAppointmentsForDay;

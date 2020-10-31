@@ -9,10 +9,18 @@ export default function Form(props) {
   const handleChangeName = (event) => {
     setName(event.target.value)
   };
-  
+  const reset = function (){
+    setName("")
+    setInterviewer(null)
+  }
  const save = function () {
   props.onSave(name, interviewer)
 
+ }
+
+ const cancel = function () {
+    reset()
+    props.onCancel()
  }
 
 
@@ -41,7 +49,7 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button onClick={props.onCancel} danger>
+          <Button onClick={cancel} danger>
             Cancel
           </Button>
           <Button onClick={save} confirm>

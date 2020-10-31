@@ -12,6 +12,20 @@ export const getAppointmentsForDay = function (state, name) {
     (appointmentItem) => state.appointments[appointmentItem]
   );}
 };
+
+export const getInterviewersForDay = function (state, name) {
+  const filteredDays = state.days.filter((dayItem) => dayItem.name === name);
+  
+  if(state.days.length === 0) {
+    return [];
+  } else if (filteredDays.length === 0) {
+    return [];
+  } else {
+    console.log('filteredDays', filteredDays[0])
+  return filteredDays[0].interviewers.map(
+    (interviewerId) => state.interviewers[interviewerId]
+  );}
+};
 //find the correct day inside state.days
 //loop through or us a method to match "day" with the key name and value === day pram
 // When matched return appointments array
@@ -32,6 +46,11 @@ export const getInterview = function (state, interview) {
 
 
 }
+
+
+
+
+
 
 // {  
 //   "student": "Lydia Miller-Jones",

@@ -10,7 +10,10 @@ export default function Form(props) {
     setName(event.target.value)
   };
   
- 
+ const save = function () {
+  props.onSave(name, interviewer)
+
+ }
 
 
   return (
@@ -41,7 +44,7 @@ export default function Form(props) {
           <Button onClick={props.onCancel} danger>
             Cancel
           </Button>
-          <Button onClick={props.onSave} confirm>
+          <Button onClick={save} confirm>
             Save
           </Button>
         </section>

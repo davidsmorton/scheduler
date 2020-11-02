@@ -4,23 +4,49 @@ const useVisualMode = (initial) => {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
 
-  // I think I need a conditional on this but not sure what to do
-  // Need to push a new mode when replace is true
-
   const transition = function (newMode, replace = false) {
     setMode(newMode);
-    replace && history.pop();
-    setHistory(history.concat([newMode]));
+
+    replace &&
+      setHistory((prev) => [...prev.slice(0, prev.length - 1), newMode]);
+    !replace && setHistory((prev) => [...prev, newMode]);
   };
 
   const back = function () {
-    history.length > 1 && history.pop();
+    const newHistory = [...history];
 
-    setHistory([...history]);
-    setMode(history[history.length - 1]);
+    history.length > 1 && newHistory.pop();
+
+    setMode(newHistory[newHistory.length - 1]);
+    setHistory(newHistory);
+    console.log("New HISTORY", newHistory);
   };
 
   return { mode, transition, back };
 };
 
+// code provided by AR call used for refactor
+
+// const useVisualMode = (initialMode) => {
+//   const [mode, setMode] = useState(initialMode);
+//   const [history, setHistory] = useState([initialMode]);
+//   const transition = (mode, replace = false) => {
+
+//     if (replace) {
+//       setHistory((prev) => [...prev.slice(0, prev.length - 1), mode]);
+//     } else {
+//       setHistory((prev) => [...prev, mode]);
+//     }
+//     setMode(mode);
+//   };
+//   const back = () => {
+//     const newHistory = [...history];
+//     if (history.length > 1) {
+//       newHistory.pop();
+//     }
+//     setMode(newHistory[newHistory.length - 1]);
+//     setHistory(newHistory);
+//   };
+//   return { mode, transition, back };
+// };
 export default useVisualMode;

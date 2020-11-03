@@ -103,7 +103,7 @@ const useApplicationData = function () {
   
   })};
 
-  //spots + 1
+  
   const cancelInterview = function (id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -147,7 +147,7 @@ const useApplicationData = function () {
     .all([
       axios.get(`/api/days`),
       axios.get(`/api/appointments`),
-      axios.get(`api/interviewers`),
+      axios.get(`/api/interviewers`),
     ])
     .then((all) => {
       console.log(all[0]); // first

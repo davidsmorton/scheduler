@@ -72,7 +72,8 @@ const useApplicationData = function () {
 
 
   const bookInterview = function (id, interview) {
-    console.log("LOOKING FOR SPOTS", state.day);
+    //console.log("LOOKING FOR SPOTS", state.day);
+    console.log("LOOKING FOR STATE", state.appointments)
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
@@ -86,12 +87,15 @@ const useApplicationData = function () {
 
     const day ={
       ...state.days[dayID],
-      spots: state.days[dayID].spots - 1
-    }
-
-    const days = state.days;
+      spots: state.days[dayID].spots
+    } 
+    if (state.appointments[id].interview === null) {
+    day.spots = day.spots - 1
+  } 
+    
+    const days = [...state.days];
     days[dayID] = day;
-
+  
     return axios.put(`/api/appointments/${id}`, appointment).then((res) => {
       setState({
         ...state,
@@ -107,7 +111,7 @@ const useApplicationData = function () {
   const cancelInterview = function (id, interview) {
     const appointment = {
       ...state.appointments[id],
-      interview: { ...interview },
+      interview: null,
     };
 
     const appointments = {
@@ -117,13 +121,14 @@ const useApplicationData = function () {
 
     const dayID = getDay(state.day);
 
-    const day ={
+    const day = {
       ...state.days[dayID],
-      spots: state.days[dayID].spots + 1
+      spots: state.days[dayID].spots 
     }
-
-    const days = state.days;
-    days[dayID] = day;
+    day.spots = day.spots + 1
+    let days = [...state.days];
+    days[dayID] = day
+   
 
     return axios.delete(`/api/appointments/${id}`).then((res) => {
       setState({ 

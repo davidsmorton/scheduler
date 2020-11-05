@@ -3,7 +3,7 @@ Date October 26 - Nov 4, 2020
 Week 7-8 Lighthouse Labs Web Development Bootcamp
 
 ### Summary 
-Built and tested a React application that allows users to book and cancel interviews. Application uses hooks from React (i.e. setState) and two custom hooks. Testing included unit and integration of individual functions and components. End-to-end testing focused on a typical user expierence for booking, changing and cancelling appointments. This was a school project and is not for commerical use. 
+Built and tested a React application that allows users to book and cancel interviews. Application uses hooks from React (i.e. setState) and two custom hooks. Testing included unit and integration testing of individual functions and components. End-to-end testing focused on a typical user expierence for booking, changing and cancelling appointments. This was a school project and is not intended for commerical use. 
 
 ## Setup
 
@@ -37,18 +37,27 @@ Built and tested a React application that allows users to book and cancel interv
 ```sh
 npm start
 ```
+https://webpack.js.org/
+
 `NOTE:` To simiulate deployment a proxy was  added to the package.json file. For more information on this please contact Scott Morton at davidsmorton@gmail.com. 
 ## Running Jest Test Framework
 
 ```sh
 npm test
 ```
-
+https://jestjs.io/docs/en/getting-started
 ## Running Storybook Visual Testbed
 
 ```sh
 npm run storybook
 ```
+https://storybook.js.org/docs/react/get-started/introduction
+## Running Cypress Visual Testbed
+
+```sh
+npm run cypress
+```
+https://docs.cypress.io/guides/getting-started/installing-cypress.html
 ## Features
 
 ![start_Here](https://github.com/davidsmorton/scheduler/blob/master/documents/starting.png)
@@ -94,3 +103,5 @@ ____________________________________________
 
 ## Security 
 There is a known security issue `serialize-javascript`. This application is for demonstration purposes. 
+
+If you have any questions please contact Scott Morton - davidsmorton@gmail.com.

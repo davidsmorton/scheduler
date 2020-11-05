@@ -53,6 +53,7 @@ npm run storybook
 
 ![start_Here](https://github.com/davidsmorton/scheduler/blob/master/documents/starting.png)
 ### landing page 
+____________________________________________
 
 ![cancel](https://github.com/davidsmorton/scheduler/blob/master/documents/cancel.png)
 ### cancelling apppointment notice

@@ -57,28 +57,37 @@ ____________________________________________
 
 ![cancel](https://github.com/davidsmorton/scheduler/blob/master/documents/cancel.png)
 ### cancelling apppointment notice
+____________________________________________
 
 ![deleting](https://github.com/davidsmorton/scheduler/blob/master/documents/deleting.png)
 ### deleting feedback for user
+____________________________________________
+
 
 
 ![nav_days](https://github.com/davidsmorton/scheduler/blob/master/documents/nav_days.png)
 ### selecting days
+____________________________________________
+
 
 
 ![empty_form](https://github.com/davidsmorton/scheduler/blob/master/documents/making_app_form.png)
 ### empty interview
+____________________________________________
 
 ![Saving](https://github.com/davidsmorton/scheduler/blob/master/documents/saving.png)
 ### saving feedback for user
+____________________________________________
 
 
 ![filled_out_app](https://github.com/davidsmorton/scheduler/blob/master/documents/making_app.png)
 ### completed interview
+____________________________________________
 
 
 ![app_complete](https://github.com/davidsmorton/scheduler/blob/master/documents/app_complete.png)
 ### scheduled interview
+____________________________________________
 
 
 

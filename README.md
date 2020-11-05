@@ -50,6 +50,10 @@ npm test
 npm run storybook
 ```
 ## Features
+
+
+
+
 ![Scheduler](https://github.com/davidsmorton/scheduler/blob/master/documents/Scheduler.mov)
 
 

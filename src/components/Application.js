@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment/index";
-import useApplicationData from "hooks/useApplicationData"
+import useApplicationData from "hooks/useApplicationData";
 import {
   getAppointmentsForDay,
   getInterview,
@@ -10,13 +10,12 @@ import {
 } from "helpers/selectors";
 
 export default function Application(props) {
-
   const {
     state,
     setDay,
     bookInterview,
     cancelInterview,
-    updateSpots
+    updateSpots,
   } = useApplicationData();
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
@@ -36,7 +35,6 @@ export default function Application(props) {
       />
     );
   });
-
 
   return (
     <main className="layout">

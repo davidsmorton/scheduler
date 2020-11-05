@@ -1,3 +1,6 @@
+//Refactor file Dec 2020 make hook more potable
+//Pull some of this out to redux?
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -70,10 +73,7 @@ const useApplicationData = function () {
 
   const setDay = (day) => setState({ ...state, day });
 
-
   const bookInterview = function (id, interview) {
-    //console.log("LOOKING FOR SPOTS", state.day);
-    console.log("LOOKING FOR STATE", state.appointments)
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
@@ -85,29 +85,26 @@ const useApplicationData = function () {
 
     const dayID = getDay(state.day);
 
-    const day ={
+    const day = {
       ...state.days[dayID],
-      spots: state.days[dayID].spots
-    } 
+      spots: state.days[dayID].spots,
+    };
     if (state.appointments[id].interview === null) {
-    day.spots = day.spots - 1
-  } 
-    
+      day.spots = day.spots - 1;
+    }
+
     const days = [...state.days];
     days[dayID] = day;
-  
+
     return axios.put(`/api/appointments/${id}`, appointment).then((res) => {
       setState({
         ...state,
         appointments,
         days,
-      })
-    
-      
-  
-  })};
+      });
+    });
+  };
 
-  
   const cancelInterview = function (id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -123,38 +120,32 @@ const useApplicationData = function () {
 
     const day = {
       ...state.days[dayID],
-      spots: state.days[dayID].spots 
-    }
-    day.spots = day.spots + 1
+      spots: state.days[dayID].spots,
+    };
+    day.spots = day.spots + 1;
     let days = [...state.days];
-    days[dayID] = day
-   
+    days[dayID] = day;
 
     return axios.delete(`/api/appointments/${id}`).then((res) => {
-      setState({ 
-        ...state, 
-        appointments, 
-        days
+      setState({
+        ...state,
+        appointments,
+        days,
       });
-    })
-    
+    });
   };
 
   const getDay = function (name) {
     const match = (element) => element.name === name;
-    return state.days.findIndex(match)
-  }
-
- 
+    return state.days.findIndex(match);
+  };
 
   useEffect(() => {
-    Promise
-    .all([
+    Promise.all([
       axios.get(`/api/days`),
       axios.get(`/api/appointments`),
       axios.get(`/api/interviewers`),
-    ])
-    .then((all) => {
+    ]).then((all) => {
       console.log(all[0]); // first
       console.log(all[1]); // second
       console.log(all[2]);

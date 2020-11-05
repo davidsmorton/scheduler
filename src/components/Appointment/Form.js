@@ -8,32 +8,31 @@ export default function Form(props) {
   const [error, setError] = useState("");
 
   const handleChangeName = (event) => {
-    setName(event.target.value)
+    setName(event.target.value);
   };
-  const reset = function (){
-    setName("")
-    setInterviewer(null)
-  }
+  const reset = function () {
+    setName("");
+    setInterviewer(null);
+  };
 
- const cancel = function () {
-    reset()
-    props.onCancel()
- }
+  const cancel = function () {
+    reset();
+    props.onCancel();
+  };
 
- const validate = function () {
-   if(name === "") {
-     setError("Student name cannot be blank");
-     return;
-   }
-   setError("")
-   props.onSave(name, interviewer);
- }
-
+  const validate = function () {
+    if (name === "") {
+      setError("Student name cannot be blank");
+      return;
+    }
+    setError("");
+    props.onSave(name, interviewer);
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off" onSubmit={event => event.preventDefault()}>
+        <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
             value={name}

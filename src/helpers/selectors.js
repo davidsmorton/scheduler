@@ -2,8 +2,6 @@
 
 export const getAppointmentsForDay = function (state, name) {
   const filteredDays = state.days.filter((dayItem) => dayItem.name === name);
-  // console.log('FILTERED DAYS', filteredDays[0])
-  // console.log('SPOTS',filteredDays[0])
   if (state.days.length === 0) {
     return [];
   } else if (filteredDays.length === 0) {
@@ -40,6 +38,8 @@ export const getInterview = function (state, interview) {
   };
   return filteredInterview;
 };
+
+//Example Data//
 
 // {
 //   "student": "Lydia Miller-Jones",
